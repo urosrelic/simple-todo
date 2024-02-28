@@ -28,7 +28,7 @@ export const Task = ({
         >
           {taskName}
         </div>
-        <div className='star-icon'>
+        <div className='star-icon' onClick={() => handleSetAsImportant(taskId)}>
           <StarIcon icon={important ? <IoIosStar /> : <IoIosStarOutline />} />
         </div>
       </div>

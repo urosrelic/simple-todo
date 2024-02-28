@@ -53,6 +53,7 @@ export const TodoList = ({ todoList, setTodoList, selectedCategory }) => {
       if (item.id === id) {
         return { ...item, completed: !item.completed };
       }
+      return item;
     });
 
     setTodoList(updatedList);
@@ -60,18 +61,21 @@ export const TodoList = ({ todoList, setTodoList, selectedCategory }) => {
   };
 
   const handleSetAsImportant = (id) => {
-    todoList.map((item) => {
+    const updatedList = todoList.map((item) => {
       if (item.id === id) {
-        return { ...item, important: true };
+        return { ...item, important: !item.important };
       }
+      return item;
     });
+
+    setTodoList(updatedList);
   };
 
   const filteredTasks = todoList.filter((task) => {
     if (selectedCategory === 'All') {
       return true; // Show all tasks
     } else if (selectedCategory === 'Important') {
-      return task.important && !task.completed;
+      return task.important;
     } else if (selectedCategory === 'Completed') {
       return task.completed;
     } else {
