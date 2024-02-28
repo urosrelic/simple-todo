@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export const Sidebar = ({ categories, setCategories, setSelectedCategory }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+export const Sidebar = ({
+  categories,
+  setCategories,
+  setSelectedCategory,
+  isSidebarMenuOpen,
+  setIsSidebarMenuOpen,
+}) => {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsSidebarMenuOpen(!isSidebarMenuOpen);
   };
 
-  const sidebarClass = isMenuOpen ? 'sidebar open' : 'sidebar';
-  const categoryClass = isMenuOpen ? 'category close' : 'category';
+  useEffect(() => {
+    console.log(isSidebarMenuOpen);
+  }, [isSidebarMenuOpen]);
+
+  // * Sidebar transitions
+  const sidebarClass = !isSidebarMenuOpen ? 'sidebar open' : 'sidebar';
+  const categoryClass = !isSidebarMenuOpen ? 'category close' : 'category';
 
   return (
     <div className={sidebarClass}>

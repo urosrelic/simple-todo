@@ -5,7 +5,12 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { IoMdClose } from 'react-icons/io';
 import { Task } from './Task';
 
-export const TodoList = ({ todoList, setTodoList, selectedCategory }) => {
+export const TodoList = ({
+  todoList,
+  setTodoList,
+  selectedCategory,
+  isSidebarMenuOpen,
+}) => {
   const [taskName, setTaskName] = useState('');
   const [dateValue, setDateValue] = useState(null);
 
@@ -13,6 +18,12 @@ export const TodoList = ({ todoList, setTodoList, selectedCategory }) => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const dateRef = useRef();
+
+  // * Sidebar behavior based on sidebar
+  // Default value is 'false'
+  const todoListClass = isSidebarMenuOpen
+    ? 'todo-list grow'
+    : 'todo-list shrink';
 
   const handleInput = (e) => {
     setTaskName(e.target.value);
@@ -65,7 +76,6 @@ export const TodoList = ({ todoList, setTodoList, selectedCategory }) => {
       if (item.id === id) {
         return { ...item, important: !item.important };
       }
-      return item;
     });
 
     setTodoList(updatedList);
@@ -85,11 +95,10 @@ export const TodoList = ({ todoList, setTodoList, selectedCategory }) => {
 
   useEffect(() => {
     setIsDisabled(taskName === '');
-    console.log(filteredTasks);
   }, [taskName, todoList, filteredTasks]);
 
   return (
-    <div className='todo-list'>
+    <div className={todoListClass}>
       <h1 style={{ textTransform: 'uppercase' }}>{selectedCategory}</h1>
       <div className='add-task'>
         <form onSubmit={handleSubmit}>
