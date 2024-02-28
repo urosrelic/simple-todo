@@ -166,12 +166,13 @@ body {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   padding: 15px;
-  font-size: 20px;
   color: #5788da;
   background-color: #ffffff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
 }
 
 .task-information {
@@ -180,4 +181,26 @@ body {
 
 .completed {
   text-decoration: line-through;
+}
+
+.checkbox-container {
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.star-icon {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.delete-task {
+  font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
 }
