@@ -22,8 +22,8 @@ export const TodoList = ({
   // * Sidebar behavior based on sidebar
   // Default value is 'false'
   const todoListClass = isSidebarMenuOpen
-    ? 'todo-list grow'
-    : 'todo-list shrink';
+    ? 'todo-list shrink'
+    : 'todo-list grow';
 
   const handleInput = (e) => {
     setTaskName(e.target.value);
@@ -76,6 +76,7 @@ export const TodoList = ({
       if (item.id === id) {
         return { ...item, important: !item.important };
       }
+      return item;
     });
 
     setTodoList(updatedList);
