@@ -173,17 +173,21 @@ body {
 .task {
   margin-top: 15px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
-  padding: 15px;
   color: #5788da;
   background-color: #ffffff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.task-data {
+  padding: 15px;
   cursor: pointer;
 }
 
 .task-information {
+  display: flex;
+  flex-direction: row;
   padding-left: 15px;
 }
 
@@ -191,7 +195,8 @@ body {
   text-decoration: line-through;
 }
 
-.checkbox-container {
+.task-data {
+  width: 100%;
   font-size: 1.5em;
   display: flex;
   flex-direction: row;
@@ -205,10 +210,40 @@ body {
   cursor: pointer;
 }
 
+.task-details {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #faf9f8;
+}
+
+.due-date,
+.note-section {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.due-date {
+  padding: 5px;
+  border: 1px solid rgb(179, 176, 176);
+}
+
 .delete-task {
+  width: 32px;
   font-size: 2em;
   display: flex;
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+}
+
+.note {
+  padding: 5px;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  resize: none;
+  outline: none;
 }

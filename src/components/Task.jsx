@@ -4,18 +4,23 @@ import { IoIosStarOutline } from 'react-icons/io';
 import { IoIosStar } from 'react-icons/io';
 
 import { StarIcon } from './StarIcon';
+import { useState } from 'react';
 
 export const Task = ({
   taskName,
   taskId,
   completed,
   important,
+  dateValue,
   handleSetAsImportant,
   handleComplete,
+  handleDelete,
 }) => {
+  const [taskClicked, setTaskClicked] = useState(false);
+
   return (
     <div className='task'>
-      <div className='checkbox-container'>
+      <div className='task-data' onClick={() => setTaskClicked(!taskClicked)}>
         <input
           type='checkbox'
           checked={completed ? true : false}
@@ -27,15 +32,28 @@ export const Task = ({
           }
         >
           {taskName}
-        </div>
-        <div className='star-icon' onClick={() => handleSetAsImportant(taskId)}>
-          <StarIcon icon={important ? <IoIosStar /> : <IoIosStarOutline />} />
+          <div
+            className='star-icon'
+            onClick={() => handleSetAsImportant(taskId)}
+          >
+            <StarIcon icon={important ? <IoIosStar /> : <IoIosStarOutline />} />
+          </div>
         </div>
       </div>
 
-      <div className='delete-task'>
-        <CiTrash id='delete-icon' />
-      </div>
+      {taskClicked && (
+        <div className='task-details'>
+          <div className='due-date'>
+            Due: {dateValue === null ? 'Date not selected' : dateValue}
+          </div>
+          <div className='note-section'>
+            <textarea className='note' placeholder='Add a note...'></textarea>
+          </div>
+          <div className='delete-task' onClick={handleDelete}>
+            <CiTrash id='delete-icon' />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

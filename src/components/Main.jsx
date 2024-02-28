@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Sidebar } from './Sidebar';
 import { TodoList } from './TodoList';
 
 export const Main = () => {
   const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(true);
+  const [clickedTask, setClickedTask] = useState(null);
+
+  useEffect(() => {
+    console.log(clickedTask);
+  }, [clickedTask]);
 
   const [categories, setCategories] = useState([
     'All',

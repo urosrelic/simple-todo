@@ -10,6 +10,7 @@ export const TodoList = ({
   setTodoList,
   selectedCategory,
   isSidebarMenuOpen,
+  setClickedTask,
 }) => {
   const [taskName, setTaskName] = useState('');
   const [dateValue, setDateValue] = useState(null);
@@ -82,6 +83,12 @@ export const TodoList = ({
     setTodoList(updatedList);
   };
 
+  const handleDelete = (id) => {
+    const updatedList = todoList.filter((item) => item.id !== id);
+
+    setTodoList(updatedList);
+  };
+
   const filteredTasks = todoList.filter((task) => {
     if (selectedCategory === 'All') {
       return true; // Show all tasks
@@ -100,7 +107,6 @@ export const TodoList = ({
 
   return (
     <div className={todoListClass}>
-      <h1 style={{ textTransform: 'uppercase' }}>{selectedCategory}</h1>
       <div className='add-task'>
         <form onSubmit={handleSubmit}>
           <div className='input-field'>
@@ -141,16 +147,18 @@ export const TodoList = ({
         </form>
       </div>
 
-      <h2>TASKS</h2>
+      <h1 style={{ textTransform: 'uppercase' }}>{selectedCategory} TASKS</h1>
 
       <div className='todo-items'>
-        {filteredTasks.map((task, id) => {
+        {filteredTasks.map((task) => {
           return (
             <Task
-              key={id}
+              key={task.id}
               {...task}
               handleSetAsImportant={() => handleSetAsImportant(task.id)}
               handleComplete={() => handleComplete(task.id)}
+              handleDelete={() => handleDelete(task.id)}
+              setClickedTask={setClickedTask}
             />
           );
         })}
