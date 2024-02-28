@@ -3,7 +3,7 @@ import { CiTrash } from 'react-icons/ci';
 import { IoIosStarOutline } from 'react-icons/io';
 import { IoIosStar } from 'react-icons/io';
 
-import { StarIcon } from './StarIcon';
+import { CustomIcon } from './CustomIcon';
 import { useState } from 'react';
 
 export const Task = ({
@@ -36,7 +36,9 @@ export const Task = ({
             className='star-icon'
             onClick={() => handleSetAsImportant(taskId)}
           >
-            <StarIcon icon={important ? <IoIosStar /> : <IoIosStarOutline />} />
+            <CustomIcon
+              icon={important ? <IoIosStar /> : <IoIosStarOutline />}
+            />
           </div>
         </div>
       </div>

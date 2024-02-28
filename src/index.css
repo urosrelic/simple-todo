@@ -30,6 +30,7 @@ body {
 
 /* * SIDEBAR */
 .sidebar {
+  padding: 25px 0;
   width: 15%;
   height: 100vh;
   display: flex;
@@ -44,10 +45,11 @@ body {
 }
 
 .hamburger-menu {
-  width: 100%;
+  width: 10px;
   padding: 15px 25px;
   font-size: 2em;
   cursor: pointer;
+  transition: ease-in-out 0.2s;
 }
 
 .category {
