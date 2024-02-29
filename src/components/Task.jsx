@@ -20,8 +20,8 @@ export const Task = ({
   const [taskClicked, setTaskClicked] = useState(false);
 
   return (
-    <div className='task' onClick={() => setTaskClicked(!taskClicked)}>
-      <div className='task-data'>
+    <div className='task'>
+      <div className='task-data' onClick={() => setTaskClicked(!taskClicked)}>
         <div className='task-information'>
           <input
             type='checkbox'
