@@ -19,12 +19,17 @@ export const Task = ({
   const [taskClicked, setTaskClicked] = useState(false);
 
   return (
-    <div className='task'>
-      <div className='task-data' onClick={() => setTaskClicked(!taskClicked)}>
+    <div className='task' onClick={() => setTaskClicked(!taskClicked)}>
+      <div className='task-data'>
         <input
           type='checkbox'
           checked={completed ? true : false}
-          onChange={() => handleComplete(taskId)}
+          onChange={(event) => {
+            handleComplete(taskId, event);
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         />
         <div
           className={
@@ -32,14 +37,15 @@ export const Task = ({
           }
         >
           {taskName}
-          <div
-            className='star-icon'
-            onClick={() => handleSetAsImportant(taskId)}
-          >
-            <CustomIcon
-              icon={important ? <IoIosStar /> : <IoIosStarOutline />}
-            />
-          </div>
+        </div>
+        <div
+          className='star-icon'
+          onClick={(e) => {
+            handleSetAsImportant(taskId);
+            e.stopPropagation();
+          }}
+        >
+          <CustomIcon icon={important ? <IoIosStar /> : <IoIosStarOutline />} />
         </div>
       </div>
 
