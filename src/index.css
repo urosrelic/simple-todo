@@ -236,8 +236,17 @@ body {
 }
 
 .due-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 5px;
-  border: 1px solid rgb(179, 176, 176);
+  font-size: 1.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.due-date-icon {
+  font-size: 2em;
 }
 
 .delete-task {
@@ -255,10 +264,17 @@ body {
   overflow: hidden;
   resize: none;
   outline: none;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .no-select {
   /* fixes user being able to select task name */
   /* reason: produced visual bugs */
   user-select: none;
+}
+
+.update-note-btn {
+  cursor: pointer;
 }
