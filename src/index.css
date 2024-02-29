@@ -187,7 +187,7 @@ body {
   cursor: pointer;
 }
 
-.task-information {
+.task-name {
   display: flex;
   flex-direction: row;
   padding-left: 15px;
@@ -202,7 +202,13 @@ body {
   font-size: 1.5em;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+}
+
+.task-information {
+  display: flex;
+  flex-direction: row;
 }
 
 .star-icon {
@@ -236,7 +242,6 @@ body {
 
 .delete-task {
   width: 32px;
-  font-size: 2em;
   display: flex;
   flex-direction: row;
   align-items: center;
