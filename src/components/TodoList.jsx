@@ -150,18 +150,22 @@ export const TodoList = ({
       <h1 style={{ textTransform: 'uppercase' }}>{selectedCategory} TASKS</h1>
 
       <div className='todo-items'>
-        {filteredTasks.map((task) => {
-          return (
-            <Task
-              key={task.id}
-              {...task}
-              handleSetAsImportant={() => handleSetAsImportant(task.id)}
-              handleComplete={() => handleComplete(task.id)}
-              handleDelete={() => handleDelete(task.id)}
-              setClickedTask={setClickedTask}
-            />
-          );
-        })}
+        {filteredTasks.length === 0 ? (
+          <h2>No tasks</h2>
+        ) : (
+          filteredTasks.map((task) => {
+            return (
+              <Task
+                key={task.id}
+                {...task}
+                handleSetAsImportant={() => handleSetAsImportant(task.id)}
+                handleComplete={() => handleComplete(task.id)}
+                handleDelete={() => handleDelete(task.id)}
+                setClickedTask={setClickedTask}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );
