@@ -33,7 +33,9 @@ export const Task = ({
         />
         <div
           className={
-            completed ? 'task-information completed' : 'task-information'
+            completed
+              ? 'task-information completed no-select'
+              : 'task-information no-select'
           }
         >
           {taskName}

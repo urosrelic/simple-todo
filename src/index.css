@@ -212,6 +212,8 @@ body {
   cursor: pointer;
 }
 
+/* * Task details */
+
 .task-details {
   padding: 15px;
   display: flex;
@@ -248,4 +250,10 @@ body {
   overflow: hidden;
   resize: none;
   outline: none;
+}
+
+.no-select {
+  /* fixes user being able to select task name */
+  /* reason: produced visual bugs */
+  user-select: none;
 }
