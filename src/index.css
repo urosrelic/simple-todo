@@ -29,19 +29,21 @@ body {
 }
 
 /* * SIDEBAR */
-.sidebar {
+.sidebar.opened {
   padding: 25px 0;
   width: 15%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease-in-out;
 }
 
-.sidebar.open {
+.sidebar.closed {
+  padding: 25px 0;
   width: 50px;
   background-color: #faf9f8;
+  transition: width 0.3s ease-in-out;
 }
 
 .hamburger-menu {
@@ -52,14 +54,14 @@ body {
   transition: ease-in-out 0.2s;
 }
 
-.category {
+.category.opened {
   padding: 15px 0 15px 25px;
   cursor: pointer;
   width: 100%;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.category.close {
+.category.closed {
   opacity: 0;
   visibility: 0;
   pointer-events: none;

@@ -24,15 +24,14 @@ export const Sidebar = ({
   }, [isSidebarMenuOpen]);
 
   // * Sidebar transitions
-  const sidebarClass = !isSidebarMenuOpen ? 'sidebar open' : 'sidebar';
-  const categoryClass = !isSidebarMenuOpen ? 'category close' : 'category';
+  const sidebarClass = !isSidebarMenuOpen ? 'sidebar closed' : 'sidebar opened';
+  const categoryClass = !isSidebarMenuOpen
+    ? 'category closed'
+    : 'category opened';
 
   return (
     <div className={sidebarClass}>
-      <div
-        className={isSidebarMenuOpen ? 'hamburger-menu open' : 'hamburger-menu'}
-        onClick={toggleMenu}
-      >
+      <div className='hamburger-menu' onClick={toggleMenu}>
         <CustomIcon icon={isSidebarMenuOpen ? <GrClose /> : <CiMenuBurger />} />
       </div>
       {categories.map((category, index) => (
