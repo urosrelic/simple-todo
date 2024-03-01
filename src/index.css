@@ -76,19 +76,20 @@ body {
 }
 
 /* * TO DO LIST */
-.todo-list {
+.todo-list.grow {
+  width: 100%;
   padding: 15px 25px;
   display: flex;
   flex-direction: column;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease-in-out;
 }
 
-.shrink {
+.todo-list.shrink {
   width: 85%;
-}
-
-.grow {
-  width: 100%;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease-in-out;
 }
 
 .add-task {
