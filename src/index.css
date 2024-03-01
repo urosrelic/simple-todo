@@ -209,6 +209,7 @@ body {
   display: flex;
   flex-direction: row;
   padding-left: 15px;
+  word-break: break-all;
 }
 
 .completed {
